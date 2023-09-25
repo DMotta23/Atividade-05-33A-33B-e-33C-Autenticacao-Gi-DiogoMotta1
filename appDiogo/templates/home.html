@@ -1,0 +1,172 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Diogo Terra Simões da Motta</title>
+  <h6>Diogo Terra Simões da Motta</h6>
+  <link rel="stylesheet" href="{% static 'myfirst.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
+</head>
+
+<body style="background-color: grey; font-family: 'PT Serif', serif;">
+
+  <div class="centralize">
+
+    <h1 style="color: #00008B; border: 2px solid red; border-style: dotted; text-shadow: 1.3px 1.3px darkred;">Como
+      fazer macarrão <i>à bolognesa?</i></h1>
+
+    <h2 style="color: #00008B;">A minha receita favorita, ótima para os fins de semana!</h2>
+
+    <!-- a tag <div> foi usada para definir uma divisão no documento, portanto facilitando a centralização da imagem. -->
+    <img src="https://www.sprinklesandsprouts.com/wp-content/uploads/2019/04/Authentic-Spaghetti-Bolognese-SQ.jpg"
+      width="600" height="600">
+  </div>
+
+  <div style="text-align: center;">
+    <a href="https://www.sprinklesandsprouts.com/authentic-spaghetti-bolognese/" target="_blank"> fonte: Sprinkles and
+      Sprouts - Authentic Spaghetti Bolognese
+    </a>
+  </div>
+
+  <br>
+
+  <h3> Resumo </h3>
+
+  <p style="color: lightblue; margin: 30px; font-size: 15px;">
+    O macarrão à bolonhesa é um prato clássico da <b><mark>culinária italiana</mark></b>, reconhecido por sua combinação
+    de macarrão cozido <i><mark>al dente</mark></i> e um molho rico à base de <u>carne moída, tomates, cebolas e
+      temperos</u>. O molho bolonhesa é <u>cozido lentamente para desenvolver sabores profundos</u>, resultando em uma
+    mistura <b>suculenta e saborosa</b>. Geralmente servido com variedades de massa como <i>espaguete</i> ou
+    <i>tagliatelle</i>, o macarrão à bolonhesa é um prato <b>reconfortante</b> e amplamente apreciado <b>em todo o
+      mundo</b>.
+  </p>
+
+  <h3> Ingredientes </h3>
+
+  <ul style="color: lightblue; margin: 30px; font-size: 15px;">
+    <li> Spaghetti/Tagliatelli </li>
+    <li> Carne Moída </li>
+    <li> Cebola </li>
+    <li> Alho </li>
+    <li> Molho de Tomate </li>
+    <li> Azeite </li>
+    <li> Queijo Parmesão </li>
+    <li> Sal </li>
+    <li> Pimenta </li>
+  </ul>
+
+  <h3> Porções para uma pessoa </h3>
+
+  <table style="color: lightblue; margin: 30px; font-size: 15px; border: 1px solid black; border-style: dashed;">
+
+    <tr>
+      <th>Ingredientes</th>
+      <th>Quantidades</th>
+    </tr>
+
+    {% for ingrediente in porcoes_ingredientes %}
+    <tr>
+      <td>{{ ingrediente.nome }} </td>
+      <td>{{ ingrediente.quantidade }} </td>
+     <td><a href= "/porcoes/update/{{ingrediente.id}}">Atualizar</a>
+      <a href= "/porcoes/delete/{{ingrediente.id}}">Remover</a></td> 
+    </tr>
+    {% endfor %}
+    
+  </table>
+
+  <a href = "/porcoes"> Adicionar novo ingrediente </a>
+    
+  <h3> Receita </h3>
+
+  <ol style="color: lightblue; margin: 30px; font-size: 15px;">
+    <li>Preparando a carne:
+      <ul>
+        <li>Em uma panela grande, aqueça o azeite em fogo médio.</li>
+        <li>Adicione a cebola picada e o alho picado. Refogue até ficarem dourados e perfumados.</li>
+      </ul>
+    </li>
+    <li>Refogando a carne:
+      <ul>
+        <li>Acrescente a carne moída à panela e cozinhe até que esteja completamente dourada e cozida, quebrando-a em
+          pedaços menores com uma colher de madeira. Tempere a carne com sal e pimenta a gosto.</li>
+      </ul>
+    </li>
+    <li>Molho de tomate:
+      <ul>
+        <li>Despeje o molho de tomate na panela e misture com a carne. Acrescente a água para diluir um pouco o molho.
+          Misture bem.</li>
+      </ul>
+    </li>
+    <li>Preparando o macarrão:
+      <ul>
+        <li>Enquanto o molho cozinha, em outra panela grande, ferva água com sal. Cozinhe o macarrão de acordo com as
+          instruções da embalagem até que esteja al dente. Escorra o macarrão e reserve. Misture tudo!
+        </li>
+      </ul>
+    </li>
+    <li>Aproveite!
+      <ul>
+        <li>Adicione queijo parmesão à gosto!
+        </li>
+      </ul>
+    </li>
+
+  </ol>
+
+  <h3> Outros Pratos de Massa </h3>
+
+  <!--<ul style="color: lightblue; margin: 30px; font-size: 15px;">
+
+    <li>Carbonara</li>
+    <li>Cacio & Pepe</li>
+    <li>Fettuccine Alfredo</li>
+    <li>Mac & Cheese</li>
+    <li>Spaghetti Alla Vodka</li>
+    <li>Pesto</li>
+    
+  </ul>  -->
+
+  <ul style="color: lightblue; margin: 30px; font-size: 15px;">
+    {% for prato in pratos_massa %}
+    <li>{{ prato.nome }} 
+    <a href= "/pratos/update/{{prato.id}}">Atualizar</a>
+    <a href= "/pratos/delete/{{prato.id}}">Remover</a></li>
+    {% endfor %}
+  </ul>
+
+  <a href = "/pratos"> Adicionar novo prato </a>
+
+  <h3> Os Utensilios Mais Importantes </h3>
+  
+  <!--<ol style="color: lightblue; margin: 30px; font-size: 15px;">
+
+    <li>Faca do Chef</li>
+    <li>Tábua de Corte</li>
+    <li>Frigideira</li>
+    <li>Panela Grande</li>
+    <li>Espátula</li>
+    
+  </ol>  -->
+
+  <ol style="color: lightblue; margin: 30px; font-size: 15px;"">
+    {% for item in utensilios_cozinha %}
+    <li>{{ item.nome }}
+    <a href= "/utensilios/update/{{item.id}}">Atualizar</a>
+    <a href= "/utensilios/delete/{{item.id}}">Remover</a></li>
+    {% endfor %}
+  </ol>
+
+  <a href = "/utensilios"> Adicionar novo utensílio </a>
+  
+  <br>
+
+</body>
+
+</html>

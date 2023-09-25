@@ -1,0 +1,30 @@
+<h1>Adicionar Pratos</h1>
+
+<form method="post">
+  {% csrf_token %}
+  <div>
+    <label>Nome:</label>
+    <input name="nome", value= "{{ pratos.nome }}">
+  </div>
+
+  <div>
+    <label>Tipo da Massa:</label>
+    <input name="tipoMassa", value= "{{ pratos.tipoMassa }}">
+  </div>
+
+  <div>
+    <label>Dificuldade:</label>
+    <select name="dificuldade", value= "{{ pratos.dificuldade }}">
+      {% for value,display_name in options %}
+      <option value="{{value}}">{{display_name}}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div>
+    <label>Número de Calorias:</label>
+    <input name="numCalorias", type="number", value="{{ pratos.numCalorias }}">
+  </div>
+  
+  <input type="submit" value="Registrar">
+</form>

@@ -1,0 +1,30 @@
+<h1>Adicionar Utensilios</h1>
+
+<form method="post">
+  {% csrf_token %}
+  <div>
+    <label>Nome:</label>
+    <input name="nome", value= "{{ utensilios.nome }}">
+  </div>
+
+  <div>
+    <label>Material:</label>
+    <input name="material", value= "{{ utensilios.material }}">
+  </div>
+
+  <div>
+    <label>Cortante:</label>
+    <input type= "checkbox", name="cortante", value= "{{ utensilios.cortante}}">
+  </div>
+
+  <div>
+    <label>Tamanho:</label>
+    <select name="tamanho", value= "{{ utensilios.tamanho}}">
+      {% for value,display_name in options %}
+      <option value="{{value}}">{{display_name}}</option>
+      {% endfor %}
+    </select>
+  </div>
+  
+  <input type="submit" value="Registrar">
+</form>

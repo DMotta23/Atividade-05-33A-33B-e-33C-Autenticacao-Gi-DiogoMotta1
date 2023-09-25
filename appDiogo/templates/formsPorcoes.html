@@ -1,0 +1,16 @@
+<h1>Adicionar Ingredientes</h1>
+
+<form method="post">
+  {% csrf_token %}
+  <div>
+    <label>Nome:</label>
+    <input name="nome", value= "{{ porcoes.nome }}">
+  </div>
+
+  <div>
+    <label>Quantidade:</label>
+    <input type="number" name="quantidade", value= "{{ porcoes.quantidade }}">
+  </div>
+
+  <input type="submit" value="Registrar">
+</form> 

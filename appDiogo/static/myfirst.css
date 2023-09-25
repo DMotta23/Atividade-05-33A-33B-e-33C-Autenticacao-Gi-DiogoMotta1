@@ -1,0 +1,11 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+.centralize{
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center; /* justifica na horizontal. use justify-content para justificar na vertical! */
+}
